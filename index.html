@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mehfil-e-Baithak — an evening of ghazal, shayari and qissa</title>
+<meta name="description" content="An intimate baithak of live ghazal, shayari and storytelling. Floor seating, one lamp, no stage.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Tiro+Devanagari+Hindi:ital@0;1&family=Noto+Nastaliq+Urdu:wght@400;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --lacquer:#24050A;
+  --lacquer-2:#360810;
+  --velvet:#7E121C;
+  --ember:#C22B2F;
+  --gold:#DFB65C;
+  --gold-lit:#F7E4B2;
+  --gold-deep:#9C7326;
+  --ivory:#F2E2C4;
+  --soft:rgba(242,226,196,.66);
+  --hair:rgba(223,182,92,.26);
+  --serif:'Marcellus',Georgia,'Times New Roman',serif;
+  --deva:'Tiro Devanagari Hindi',Georgia,serif;
+  --urdu:'Noto Nastaliq Urdu',Georgia,serif;
+  --sans:'Jost',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --lacquer:#1F0408;--lacquer-2:#320710;--velvet:#7E121C;--ember:#C22B2F;
+    --gold:#DFB65C;--gold-lit:#F7E4B2;--gold-deep:#9C7326;--ivory:#F2E2C4;
+    --soft:rgba(242,226,196,.66);--hair:rgba(223,182,92,.26);
+  }
+}
+:root[data-theme="dark"]{
+  --lacquer:#1F0408;--lacquer-2:#320710;--velvet:#7E121C;--ember:#C22B2F;
+  --gold:#DFB65C;--gold-lit:#F7E4B2;--gold-deep:#9C7326;--ivory:#F2E2C4;
+  --soft:rgba(242,226,196,.66);--hair:rgba(223,182,92,.26);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--lacquer);
+  background-image:
+    radial-gradient(120% 70% at 50% -10%, rgba(194,43,47,.42) 0%, rgba(126,18,28,.16) 42%, rgba(0,0,0,0) 72%),
+    radial-gradient(80% 50% at 90% 110%, rgba(126,18,28,.34) 0%, rgba(0,0,0,0) 65%),
+    linear-gradient(180deg,var(--lacquer) 0%, var(--lacquer-2) 55%, var(--lacquer) 100%);
+  background-attachment:fixed;
+  color:var(--ivory);
+  font-family:var(--sans);
+  font-weight:300;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%}
+a{color:inherit}
+::selection{background:var(--gold);color:var(--lacquer)}
+:focus-visible{outline:2px solid var(--gold-lit);outline-offset:3px;border-radius:2px}
+
+/* texture + jaali lattice */
+.grain{position:fixed;inset:0;pointer-events:none;z-index:60;opacity:.16;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");}
+.jaali{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.07;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='124' viewBox='0 0 72 124'%3E%3Cg fill='none' stroke='%23DFB65C' stroke-width='1.1'%3E%3Cpath d='M36 2c14 0 22 12 22 26S48 60 36 60 14 42 14 28 22 2 36 2z'/%3E%3Cpath d='M36 64c14 0 22 12 22 26s-10 32-22 32-22-18-22-32 8-26 22-26z'/%3E%3Cpath d='M0 62h72M36 0v124'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:72px 124px;}
+.notes{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.mnote{position:absolute;top:0;left:0;color:var(--gold);opacity:0;line-height:1;
+  will-change:transform,opacity;filter:drop-shadow(0 0 7px rgba(223,182,92,.35))}
+.mnote svg{display:block;stroke:currentColor;fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+.mnote .sa{font-family:var(--deva);color:var(--gold-lit)}
+
+.wrap{width:min(1120px,92vw);margin-inline:auto;position:relative;z-index:2}
+
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:14px 0;
+  backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);
+  background:linear-gradient(180deg,rgba(31,4,8,.86),rgba(31,4,8,0));
+  transform:translateY(-100%)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{font-family:var(--deva);font-size:1.05rem;color:var(--gold-lit);letter-spacing:.02em;text-decoration:none;white-space:nowrap}
+.brand small{display:block;font-family:var(--sans);font-size:.6rem;letter-spacing:.34em;color:var(--soft);font-weight:300}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0}
+.nav a.lnk{font-size:.82rem;letter-spacing:.06em;color:var(--soft);text-decoration:none;position:relative;padding-bottom:3px}
+.nav a.lnk::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .45s cubic-bezier(.2,.8,.2,1)}
+.nav a.lnk:hover{color:var(--gold-lit)}
+.nav a.lnk:hover::after{width:100%}
+@media(max-width:860px){.nav ul{display:none}}
+
+.btn{display:inline-flex;align-items:center;gap:.55rem;padding:.72rem 1.5rem;border-radius:999px;
+  text-decoration:none;font-size:.82rem;letter-spacing:.1em;border:1px solid var(--gold);
+  color:var(--gold-lit);background:transparent;cursor:pointer;font-family:var(--sans);
+  transition:background .4s,color .4s,box-shadow .4s}
+.btn:hover{background:var(--gold);color:#2A0508;box-shadow:0 0 28px rgba(223,182,92,.35)}
+.btn.solid{background:linear-gradient(180deg,var(--gold-lit),var(--gold));color:#2A0508;border-color:transparent}
+.btn.solid:hover{box-shadow:0 0 34px rgba(223,182,92,.5)}
+
+/* hero */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;
+  text-align:center;padding:116px 0 0;position:relative;overflow:hidden}
+.mehrab{position:absolute;top:42%;left:50%;transform:translate(-50%,-50%);width:min(620px,94vw);height:auto;z-index:1;opacity:.5}
+.mehrab path,.mehrab circle{stroke:var(--gold);fill:none;stroke-width:1.1;vector-effect:non-scaling-stroke}
+.hero .wrap{z-index:3}
+.eyebrow{font-size:.7rem;letter-spacing:.42em;color:var(--gold);margin:0 0 24px;font-weight:300}
+.title{font-family:var(--deva);font-size:clamp(2.7rem,10vw,6rem);line-height:1.04;margin:0;font-weight:400;
+  background:linear-gradient(105deg,var(--gold-deep) 0%,var(--gold) 26%,var(--gold-lit) 46%,var(--gold) 64%,var(--gold-deep) 100%);
+  background-size:260% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 6px 30px rgba(194,43,47,.45))}
+.title .ch{display:inline-block;will-change:transform,opacity}
+.roman{font-family:var(--serif);font-size:clamp(.7rem,2.2vw,.9rem);letter-spacing:.44em;color:var(--soft);margin:20px 0 0;padding-left:.44em}
+.urdu{font-family:var(--urdu);font-size:clamp(.95rem,3vw,1.3rem);line-height:2.5;color:var(--gold-lit);
+  margin:24px auto 0;max-width:30ch;direction:rtl}
+.hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+
+/* the floor: instruments waiting before the artists sit down */
+.stage{position:relative;z-index:2;margin-top:clamp(22px,4vh,54px);width:100%;display:flex;justify-content:center}
+.stage::before{content:"";position:absolute;left:50%;bottom:0;transform:translateX(-50%);
+  width:min(1050px,98vw);height:76%;border-radius:50% 50% 0 0/100% 100% 0 0;pointer-events:none;
+  background:radial-gradient(58% 100% at 50% 100%,rgba(194,43,47,.5),rgba(194,43,47,0) 72%);filter:blur(10px)}
+.scene{width:min(1200px,102vw);height:auto;max-height:44vh;display:block;position:relative}
+.scene .ln{stroke:var(--gold);fill:none;stroke-width:1.3;vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-linejoin:round}
+.scene .hair{stroke:var(--gold);fill:none;stroke-width:.9;opacity:.5;vector-effect:non-scaling-stroke}
+.scene .dark{fill:rgba(24,3,6,.82)}
+.scene .red{fill:rgba(126,18,28,.55)}
+.scene .skin{fill:rgba(242,226,196,.14)}
+.scene .syahi{fill:rgba(12,2,4,.9)}
+.key{fill:rgba(242,226,196,.82);stroke:rgba(24,3,6,.55);stroke-width:.8}
+.key.blk{fill:rgba(20,3,6,.9);stroke:none}
+@media(max-width:700px){
+  .hero{padding-top:104px}
+  .scene{max-height:32vh;width:150vw}
+  .urdu{display:none}
+}
+
+/* sections */
+section{padding:clamp(76px,11vw,140px) 0;position:relative;z-index:2}
+.sec-head{text-align:center;margin-bottom:clamp(44px,6vw,72px)}
+.sec-head h2{font-family:var(--deva);font-weight:400;color:var(--gold-lit);
+  font-size:clamp(1.9rem,5.4vw,3.1rem);margin:0;line-height:1.25}
+.sec-head h2 .ch{display:inline-block}
+.sec-head p{max-width:60ch;margin:16px auto 0;color:var(--soft);font-size:1rem}
+.rule{display:flex;align-items:center;justify-content:center;gap:14px;margin:0 auto 22px;max-width:220px;color:var(--gold)}
+.rule::before,.rule::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,var(--hair),var(--gold))}
+.rule::after{background:linear-gradient(270deg,transparent,var(--hair),var(--gold))}
+.rule b{font-size:.7rem}
+
+/* baithak intro */
+.intro{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(30px,6vw,80px);align-items:center}
+.intro p{color:var(--soft);max-width:62ch}
+.intro p.lead{font-family:var(--serif);font-size:clamp(1.15rem,2.6vw,1.5rem);line-height:1.65;color:var(--ivory)}
+.diya{width:100%;max-width:300px;margin-inline:auto;display:block}
+.diya #diyaFlame,.diya #diyaFlameIn{transform-box:fill-box;transform-origin:50% 100%}
+.stats{display:flex;gap:clamp(20px,5vw,54px);flex-wrap:wrap;margin-top:44px;padding-top:30px;border-top:1px solid var(--hair)}
+.stat b{display:block;font-family:var(--serif);font-size:clamp(1.8rem,5vw,2.6rem);color:var(--gold);line-height:1}
+.stat span{font-size:.72rem;letter-spacing:.2em;color:var(--soft)}
+@media(max-width:820px){.intro{grid-template-columns:1fr}.intro .art{order:-1}}
+
+/* mehrab cards */
+.arches{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:clamp(16px,2.6vw,26px)}
+.arch{position:relative;padding:44px 24px 34px;text-align:center;
+  border:1px solid var(--hair);
+  border-radius:50% 50% 10px 10px / 34% 34% 10px 10px;
+  background:linear-gradient(180deg,rgba(126,18,28,.34),rgba(36,5,10,.22));
+  overflow:hidden;transition:border-color .5s,transform .5s cubic-bezier(.2,.8,.2,1)}
+.arch::before{content:"";position:absolute;inset:8px;border:1px solid rgba(223,182,92,.16);
+  border-radius:50% 50% 6px 6px / 34% 34% 6px 6px;pointer-events:none}
+.arch:hover{border-color:var(--gold);transform:translateY(-6px)}
+.arch .ic{color:var(--gold);margin-bottom:16px;display:block}
+.arch h3{font-family:var(--deva);font-weight:400;color:var(--gold-lit);font-size:1.3rem;margin:0 0 4px}
+.arch .en{font-family:var(--serif);font-size:.68rem;letter-spacing:.24em;color:var(--gold);margin:0 0 12px}
+.arch p{color:var(--soft);font-size:.9rem;margin:0;line-height:1.6}
+
+/* couplet band */
+.band{background:linear-gradient(180deg,rgba(194,43,47,.2),rgba(126,18,28,.42),rgba(194,43,47,.2));
+  border-block:1px solid var(--hair);text-align:center;overflow:hidden}
+.couplet{min-height:220px;display:grid;place-items:center}
+.couplet .line{font-family:var(--deva);font-size:clamp(1.15rem,3.6vw,2rem);line-height:1.85;color:var(--gold-lit);margin:0;max-width:26ch}
+.couplet .by{font-size:.68rem;letter-spacing:.28em;color:var(--soft);margin-top:20px}
+.marquee{display:flex;gap:44px;white-space:nowrap;margin-top:26px;opacity:.5}
+.marquee span{font-family:var(--serif);font-size:.72rem;letter-spacing:.38em;color:var(--gold)}
+
+/* artists */
+.fankaar{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:clamp(18px,3vw,30px)}
+.card{border:1px solid var(--hair);border-radius:4px;padding:30px 26px;background:rgba(36,5,10,.35);
+  position:relative;transition:background .5s,border-color .5s}
+.card:hover{background:rgba(126,18,28,.3);border-color:var(--gold)}
+.card .ic{color:var(--gold)}
+.card h3{font-family:var(--deva);font-weight:400;color:var(--ivory);font-size:1.22rem;margin:18px 0 2px}
+.card .role{font-size:.72rem;letter-spacing:.22em;color:var(--gold)}
+.card p{color:var(--soft);font-size:.88rem;margin:14px 0 0}
+
+/* silsila timeline */
+.thread{position:relative;max-width:760px;margin-inline:auto;padding-left:34px}
+.thread .spine{position:absolute;left:8px;top:6px;bottom:6px;width:1px;background:var(--hair)}
+.thread .lit{position:absolute;left:8px;top:6px;width:1px;height:100%;transform-origin:top;transform:scaleY(0);
+  background:linear-gradient(180deg,var(--gold-lit),var(--gold),var(--ember))}
+.step{position:relative;padding:0 0 42px 0}
+.step:last-child{padding-bottom:0}
+.step::before{content:"";position:absolute;left:-30px;top:9px;width:9px;height:9px;border-radius:50%;
+  background:var(--lacquer);border:1px solid var(--gold);box-shadow:0 0 0 4px rgba(36,5,10,.9)}
+.step time{font-family:var(--serif);font-size:.78rem;letter-spacing:.2em;color:var(--gold)}
+.step h4{font-family:var(--deva);font-weight:400;font-size:1.25rem;color:var(--gold-lit);margin:5px 0 6px}
+.step p{margin:0;color:var(--soft);font-size:.92rem;max-width:56ch}
+
+/* aadaab */
+.aadaab{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:var(--hair);border:1px solid var(--hair)}
+.aadaab div{background:var(--lacquer);padding:32px 26px}
+.aadaab h4{font-family:var(--serif);font-size:.74rem;letter-spacing:.24em;color:var(--gold);margin:0 0 10px}
+.aadaab p{margin:0;color:var(--soft);font-size:.92rem}
+
+/* nishist / rsvp */
+.nishist{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,6vw,70px);align-items:start}
+.detail{display:grid;gap:26px}
+.detail div b{display:block;font-family:var(--serif);font-size:.72rem;letter-spacing:.26em;color:var(--gold);margin-bottom:6px;font-weight:400}
+.detail div span{color:var(--ivory);font-size:1.02rem}
+.detail div em{display:block;color:var(--soft);font-size:.86rem;font-style:normal}
+.form{border:1px solid var(--hair);padding:clamp(24px,4vw,38px);background:rgba(126,18,28,.16);border-radius:4px}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:.7rem;letter-spacing:.2em;color:var(--gold);margin-bottom:8px}
+.field input,.field select{width:100%;padding:.8rem .9rem;background:rgba(36,5,10,.6);color:var(--ivory);
+  border:1px solid var(--hair);border-radius:3px;font-family:var(--sans);font-size:.95rem;font-weight:300}
+.field input:focus,.field select:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 3px rgba(223,182,92,.14)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.note{font-size:.76rem;color:var(--soft);margin:14px 0 0}
+.done{display:none;text-align:center;padding:16px 0}
+.done h3{font-family:var(--deva);font-weight:400;color:var(--gold-lit);font-size:1.5rem;margin:0 0 8px}
+.done p{color:var(--soft);margin:0;font-size:.92rem}
+@media(max-width:820px){.nishist{grid-template-columns:1fr}.two{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--hair);padding:52px 0 40px;text-align:center}
+footer .wrap{display:grid;gap:14px;justify-items:center}
+footer p{margin:0;color:var(--soft);font-size:.8rem}
+footer .om{font-family:var(--deva);color:var(--gold);font-size:1.3rem}
+footer .craft{margin-top:20px;padding-top:20px;border-top:1px solid var(--hair);
+  width:min(320px,80vw);font-size:.78rem;letter-spacing:.06em}
+footer .craft .heart{display:inline-block;font-size:.82rem;vertical-align:-1px;margin:0 .1em}
+footer .craft a{color:var(--gold-lit);text-decoration:none;border-bottom:1px solid var(--hair);
+  padding-bottom:1px;transition:border-color .4s,color .4s}
+footer .craft a:hover{color:var(--gold);border-color:var(--gold)}
+
+/* music toggle */
+.sur{position:fixed;right:18px;bottom:18px;z-index:55;display:flex;align-items:center;gap:10px;
+  padding:.6rem 1rem .6rem .8rem;border-radius:999px;border:1px solid var(--hair);cursor:pointer;
+  background:rgba(36,5,10,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  color:var(--gold-lit);font-family:var(--sans);font-size:.72rem;letter-spacing:.14em}
+.sur:hover{border-color:var(--gold)}
+.bars{display:flex;align-items:flex-end;gap:2px;height:14px}
+.bars i{width:2px;height:4px;background:var(--gold);display:block;border-radius:1px}
+.sur.on .bars i{animation:eq .9s ease-in-out infinite}
+.sur.on .bars i:nth-child(2){animation-delay:.15s}
+.sur.on .bars i:nth-child(3){animation-delay:.3s}
+.sur.on .bars i:nth-child(4){animation-delay:.45s}
+@keyframes eq{0%,100%{height:4px}50%{height:14px}}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<div class="jaali"></div>
+<div class="notes" id="notes"></div>
+<div class="grain"></div>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">महफ़िल-ए-बैठक<small>MEHFIL-E-BAITHAK</small></a>
+    <ul>
+      <li><a class="lnk" href="#baithak">The baithak</a></li>
+      <li><a class="lnk" href="#mehfil">What you'll hear</a></li>
+      <li><a class="lnk" href="#fankaar">Artists</a></li>
+      <li><a class="lnk" href="#silsila">The evening</a></li>
+      <li><a class="lnk" href="#nishist">Visit</a></li>
+    </ul>
+    <a class="btn" href="#nishist">Reserve a seat</a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <svg class="mehrab" id="mehrab" viewBox="0 0 560 640" aria-hidden="true">
+    <path d="M60 620 V300 C60 160 155 60 280 60 C405 60 500 160 500 300 V620"/>
+    <path d="M92 620 V302 C92 178 176 92 280 92 C384 92 468 178 468 302 V620"/>
+    <path d="M280 60 L280 22"/>
+    <circle cx="280" cy="14" r="8"/>
+    <path d="M150 300 C150 228 208 172 280 172 C352 172 410 228 410 300"/>
+    <path d="M196 620 V330 C196 284 233 248 280 248 C327 248 364 284 364 330 V620"/>
+    <path d="M60 620 H500"/>
+    <path d="M118 372 h-28 M470 372 h-28 M118 452 h-28 M470 452 h-28"/>
+  </svg>
+
+  <div class="wrap">
+    <p class="eyebrow">Saturday, 14 November · Jaipur</p>
+    <h1 class="title" id="title">महफ़िल-ए-बैठक</h1>
+    <p class="roman">GHAZAL · SHAYARI · QISSA</p>
+    <p class="urdu" id="urdu">ایک شام، ایک چراغ، اور سُر کی مجلس</p>
+    <div class="hero-actions">
+      <a class="btn solid" href="#nishist">Reserve a seat</a>
+      <a class="btn" href="#silsila">See the evening</a>
+    </div>
+  </div>
+
+  <div class="stage">
+    <svg class="scene" id="scene" viewBox="0 0 1200 470" preserveAspectRatio="xMidYMax meet" aria-label="A harmonium, an oil lamp and a pair of tabla on the baithak floor">
+
+      <!-- floor -->
+      <g id="floor">
+        <path class="red" d="M150 398 H1060 L1140 452 H70 Z" opacity=".5"/>
+        <path class="ln" d="M150 398 H1060 M70 452 H1140 M150 398 L70 452 M1060 398 L1140 452"/>
+        <path class="hair" d="M120 425 H1090 M188 398 L122 452 M1022 398 L1088 452"/>
+      </g>
+
+      <!-- harmonium -->
+      <g id="harmonium">
+        <g id="bellows">
+          <path class="red" d="M206 252 H498 V168 H238 Z"/>
+          <path class="ln" d="M206 252 H498 V168 H238 Z"/>
+          <path class="hair" d="M246 252 V170 M286 252 V172 M326 252 V174 M366 252 V176 M406 252 V178 M446 252 V180"/>
+          <path class="ln" d="M330 168 v-16 h44 v16"/>
+        </g>
+        <path class="dark" d="M130 284 H492 V398 H130 Z"/>
+        <path class="ln" d="M130 284 H492 V398 H130 Z"/>
+        <path class="red" d="M130 284 L492 284 L524 252 L162 252 Z"/>
+        <path class="ln" d="M130 284 L492 284 L524 252 L162 252 Z"/>
+        <g id="keys"></g>
+        <!-- front grille: three small arches -->
+        <g class="hair">
+          <path d="M156 384 V332 C156 314 168 302 184 302 C200 302 212 314 212 332 V384"/>
+          <path d="M222 384 V332 C222 314 234 302 250 302 C266 302 278 314 278 332 V384"/>
+          <path d="M288 384 V332 C288 314 300 302 316 302 C332 302 344 314 344 332 V384"/>
+        </g>
+        <path class="ln" d="M146 384 H354 M146 296 H354"/>
+        <!-- stop knobs -->
+        <g>
+          <circle class="ln" cx="392" cy="322" r="9"/><circle class="ln" cx="428" cy="322" r="9"/>
+          <circle class="ln" cx="464" cy="322" r="9"/><circle class="ln" cx="392" cy="362" r="9"/>
+          <circle class="ln" cx="428" cy="362" r="9"/><circle class="ln" cx="464" cy="362" r="9"/>
+        </g>
+      </g>
+
+      <!-- diya between the instruments -->
+      <g id="lamp">
+        <circle id="lampGlow" cx="614" cy="352" r="62" fill="var(--gold)" opacity=".13"/>
+        <g id="flame">
+          <ellipse cx="614" cy="344" rx="11" ry="26" fill="var(--ember)" opacity=".7"/>
+          <ellipse cx="614" cy="350" rx="5.5" ry="15" fill="var(--gold-lit)"/>
+        </g>
+        <path class="red" d="M580 370 C580 388 594 398 614 398 C634 398 648 388 648 370 Z"/>
+        <path class="ln" d="M580 370 C580 388 594 398 614 398 C634 398 648 388 648 370 Z M574 370 H654 M614 370 v-8"/>
+      </g>
+
+      <!-- tabla: dayan (wood) + bayan (metal) -->
+      <g id="tabla">
+        <!-- dayan -->
+        <path class="dark" d="M764 272 C758 320 772 362 782 398 L858 398 C868 362 882 320 876 272 Z"/>
+        <path class="ln" d="M764 272 C758 320 772 362 782 398 M876 272 C882 320 868 362 858 398"/>
+        <g class="hair" id="lace1">
+          <path d="M770 286 L784 392 M790 282 L798 394 M812 280 L812 396 M834 280 L832 396 M856 282 L848 394 M872 286 L860 392"/>
+        </g>
+        <g class="ln">
+          <rect x="776" y="326" width="9" height="24" rx="2"/><rect x="799" y="330" width="9" height="24" rx="2"/>
+          <rect x="824" y="332" width="9" height="24" rx="2"/><rect x="849" y="330" width="9" height="24" rx="2"/>
+        </g>
+        <ellipse class="ln" cx="820" cy="398" rx="44" ry="11"/>
+        <g id="dayanHead">
+          <ellipse class="skin" cx="820" cy="272" rx="58" ry="17"/>
+          <ellipse class="ln" cx="820" cy="272" rx="58" ry="17"/>
+          <ellipse class="hair" cx="820" cy="272" rx="46" ry="13"/>
+          <ellipse class="syahi" cx="820" cy="272" rx="21" ry="6.5"/>
+        </g>
+        <circle id="rip1" class="ln" cx="820" cy="272" r="10" opacity="0"/>
+
+        <!-- bayan -->
+        <path class="dark" d="M922 296 C912 356 942 400 992 400 C1042 400 1072 356 1062 296 Z"/>
+        <path class="ln" d="M922 296 C912 356 942 400 992 400 C1042 400 1072 356 1062 296"/>
+        <g class="hair">
+          <path d="M932 310 C930 350 948 382 976 392 M956 302 C950 348 962 386 986 396 M992 300 V398 M1028 302 C1034 348 1022 386 998 396 M1052 310 C1054 350 1036 382 1008 392"/>
+        </g>
+        <path class="hair" d="M926 336 C960 352 1024 352 1058 336"/>
+        <g id="bayanHead">
+          <ellipse class="skin" cx="992" cy="296" rx="72" ry="21"/>
+          <ellipse class="ln" cx="992" cy="296" rx="72" ry="21"/>
+          <ellipse class="hair" cx="992" cy="296" rx="58" ry="16"/>
+          <ellipse class="syahi" cx="976" cy="294" rx="25" ry="8"/>
+        </g>
+        <circle id="rip2" class="ln" cx="992" cy="296" r="10" opacity="0"/>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<section id="baithak">
+  <div class="wrap intro">
+    <div class="copy">
+      <div class="rule" style="margin-left:0;justify-content:flex-start"><b>❖</b></div>
+      <p class="lead">A baithak has no stage. Everyone sits on the floor, close enough to hear a singer breathe between two lines.</p>
+      <p>Before concert halls, this is how music travelled in India — a room, a carpet, a lamp, thirty people who came to listen rather than to watch. A singer begins, the tabla answers, someone reads a couplet aloud, and the room replies with <em>wah</em>.</p>
+      <p>We keep that room alive once a month. No amplification, no ticket queue, no phones out. You arrive at seven, take off your shoes, and stay as long as the music does.</p>
+      <div class="stats">
+        <div class="stat"><b data-count="38">0</b><span>BAITHAKS HELD</span></div>
+        <div class="stat"><b data-count="52">0</b><span>ARTISTS HOSTED</span></div>
+        <div class="stat"><b data-count="30">0</b><span>SEATS A NIGHT</span></div>
+      </div>
+    </div>
+    <div class="art">
+      <svg class="diya" id="diya" viewBox="0 0 300 300" aria-hidden="true">
+        <!-- halo -->
+        <circle class="halo" cx="150" cy="172" r="124" fill="none" stroke="var(--gold)" stroke-width="1.2" opacity=".26"/>
+        <circle class="halo" cx="150" cy="172" r="104" fill="none" stroke="var(--gold)" stroke-width="1.2" opacity=".14"/>
+        <!-- glow pool, behind the flame -->
+        <circle id="diyaGlow" cx="150" cy="166" r="74" fill="var(--gold)" opacity=".13"/>
+        <!-- flame, standing on the wick at y=192 -->
+        <g id="diyaFlame">
+          <path d="M150 100 C158 132 171 152 171 169 C171 185 162 193 150 193 C138 193 129 185 129 169 C129 152 142 132 150 100 Z"
+                fill="var(--ember)" opacity=".6"/>
+          <path id="diyaFlameIn" d="M150 142 C155 159 161 167 161 174 C161 183 156 189 150 189 C144 189 139 183 139 174 C139 167 145 159 150 142 Z"
+                fill="var(--gold-lit)"/>
+        </g>
+        <!-- lamp -->
+        <g fill="none" stroke="var(--gold)" stroke-width="1.3" stroke-linecap="round">
+          <path d="M150 200 V186"/>
+          <path d="M96 200 C96 226 120 241 150 241 C180 241 204 226 204 200" fill="rgba(126,18,28,.42)"/>
+          <path d="M88 200 H212"/>
+          <path d="M110 216 C126 227 174 227 190 216" opacity=".55"/>
+          <path d="M124 232 C134 237 166 237 176 232" opacity=".35"/>
+          <path d="M138 241 h24" opacity=".7"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="mehfil">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rule"><b>❖</b></div>
+      <h2 data-split>शाम में क्या सुनेंगे</h2>
+      <p>Five forms, one continuous evening. Nothing is announced in advance — the artists read the room and choose.</p>
+    </div>
+    <div class="arches">
+      <article class="arch">
+        <svg class="ic" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 20c4 0 6-3 6-7s2-9 7-9"/><circle cx="6" cy="18" r="3"/><path d="M17 4l3 2"/></svg>
+        <h3>ग़ज़ल</h3>
+        <p class="en">GHAZAL</p>
+        <p>Couplets sung slowly, each one turned over twice so the meaning has time to land.</p>
+      </article>
+      <article class="arch">
+        <svg class="ic" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M5 4h11l3 3v13H5z"/><path d="M8 10h8M8 14h6"/></svg>
+        <h3>शायरी</h3>
+        <p class="en">SHAYARI</p>
+        <p>Spoken verse between songs, read from memory or off a folded paper.</p>
+      </article>
+      <article class="arch">
+        <svg class="ic" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 18V6a3 3 0 013-3h12v15"/><path d="M6 21h12a3 3 0 010-6H6a3 3 0 000 6z"/></svg>
+        <h3>क़िस्सागोई</h3>
+        <p class="en">STORYTELLING</p>
+        <p>One long tale told in the Dastangoi manner — a voice, a cushion, no props.</p>
+      </article>
+      <article class="arch">
+        <svg class="ic" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><ellipse cx="12" cy="7" rx="7" ry="3"/><path d="M5 7v8c0 1.7 3.1 3 7 3s7-1.3 7-3V7"/><path d="M9 20h6"/></svg>
+        <h3>ठुमरी</h3>
+        <p class="en">THUMRI &amp; DADRA</p>
+        <p>Light classical pieces in Khamaj and Pilu, where the words bend with the raga.</p>
+      </article>
+      <article class="arch">
+        <svg class="ic" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="8"/><path d="M12 4v16M4 12h16" opacity=".6"/><circle cx="12" cy="12" r="3"/></svg>
+        <h3>सूफ़ी कलाम</h3>
+        <p class="en">SUFI KALAAM</p>
+        <p>The last hour, when the room usually starts clapping on its own.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="couplet" id="couplet">
+      <div>
+        <p class="line" id="cLine">शाम ढले जो चराग़ जले, तो बैठक सज जाती है<br>हर ख़ामोशी इस महफ़िल में ग़ज़ल बन जाती है</p>
+        <p class="by" id="cBy">FROM OUR SEPTEMBER BAITHAK</p>
+      </div>
+    </div>
+  </div>
+  <div class="marquee" id="marquee"></div>
+</section>
+
+<section id="fankaar">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rule"><b>❖</b></div>
+      <h2 data-split>इस बार के फ़नकार</h2>
+      <p>Four musicians and one storyteller, sitting in a half circle with you.</p>
+    </div>
+    <div class="fankaar">
+      <article class="card">
+        <svg class="ic" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><circle cx="8" cy="17" r="5"/><path d="M11 13L20 4M17 3l4 4M8 17V4"/></svg>
+        <h3>नसीम बानो</h3>
+        <p class="role">VOICE · GHAZAL</p>
+        <p>Trained in the Kirana gharana, known for holding a single note until the room goes quiet.</p>
+      </article>
+      <article class="card">
+        <svg class="ic" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><ellipse cx="8" cy="9" rx="5" ry="2.5"/><path d="M3 9v6c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5V9"/><ellipse cx="18" cy="12" rx="3.5" ry="2"/><path d="M14.5 12v4c0 1.1 1.6 2 3.5 2s3.5-.9 3.5-2v-4"/></svg>
+        <h3>इरफ़ान क़ुरैशी</h3>
+        <p class="role">TABLA</p>
+        <p>Plays teentaal like conversation — quiet under the voice, loud only when asked.</p>
+      </article>
+      <article class="card">
+        <svg class="ic" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><rect x="3" y="8" width="18" height="10" rx="1.5"/><path d="M6 8V5h12v3M6 18v2M18 18v2M8 11v4M11 11v4M14 11v4M17 11v4"/></svg>
+        <h3>मीरा जोशी</h3>
+        <p class="role">HARMONIUM</p>
+        <p>Accompanist for two decades; also opens the evening with a short raga sketch.</p>
+      </article>
+      <article class="card">
+        <svg class="ic" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M9 20a4 4 0 100-8 4 4 0 000 8z"/><path d="M11 13l8-9M6 16h6" /><path d="M16 3l5 5"/></svg>
+        <h3>सारंगी: ज़ुबैर ख़ान</h3>
+        <p class="role">SARANGI</p>
+        <p>The instrument that follows the human voice closest, and the hardest to tune.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="silsila">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rule"><b>❖</b></div>
+      <h2 data-split>शाम का सिलसिला</h2>
+      <p>A rough order. It changes every time, and it always runs late.</p>
+    </div>
+    <div class="thread" id="thread">
+      <div class="spine"></div><div class="lit" id="lit"></div>
+      <div class="step">
+        <time>6:45 PM</time>
+        <h4>आग़ाज़ — Doors and chai</h4>
+        <p>Shoes off at the door, kulhad chai in the courtyard. Find a cushion before the lamp is lit.</p>
+      </div>
+      <div class="step">
+        <time>7:15 PM</time>
+        <h4>सुर-मिलान — Tuning</h4>
+        <p>The tanpura is tuned in front of you. This is part of the evening, not a delay.</p>
+      </div>
+      <div class="step">
+        <time>7:40 PM</time>
+        <h4>पहला दौर — First set of ghazals</h4>
+        <p>Three or four pieces, unamplified, with the harmonium leading.</p>
+      </div>
+      <div class="step">
+        <time>8:40 PM</time>
+        <h4>दौर-ए-शायरी — Verse in the round</h4>
+        <p>Anyone may read a couplet aloud. Bring one if you have it; nobody is called on.</p>
+      </div>
+      <div class="step">
+        <time>9:10 PM</time>
+        <h4>क़िस्सा — The story</h4>
+        <p>One tale, told for about forty minutes, in the old Dastangoi style.</p>
+      </div>
+      <div class="step">
+        <time>10:00 PM</time>
+        <h4>समा — Sufi kalaam, until it ends</h4>
+        <p>No fixed finish. The evening closes when the room stops asking for one more.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rule"><b>❖</b></div>
+      <h2 data-split>आदाब-ए-महफ़िल</h2>
+      <p>Four things that keep a baithak a baithak.</p>
+    </div>
+    <div class="aadaab">
+      <div><h4>PHONES AWAY</h4><p>No recording, no photos during the music. We send you pictures afterwards.</p></div>
+      <div><h4>ARRIVE BEFORE 7:15</h4><p>Once the first note begins we don't open the door again until the break.</p></div>
+      <div><h4>SAY WAH</h4><p>Responding out loud is not an interruption. It's how the singer knows you're there.</p></div>
+      <div><h4>FLOOR SEATING</h4><p>Cushions and bolsters throughout. Tell us if you need a chair and we'll keep one.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="nishist">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rule"><b>❖</b></div>
+      <h2 data-split>निशस्त — Reserve a seat</h2>
+      <p>Thirty seats, released on the first of every month. We confirm by phone within a day.</p>
+    </div>
+    <div class="nishist">
+      <div class="detail">
+        <div><b>DATE</b><span>Saturday, 14 November 2026</span><em>Doors 6:45 PM · Music from 7:15 PM</em></div>
+        <div><b>VENUE</b><span>Haveli Chandra Mahal, Gangapole</span><em>Old City, Jaipur 302002</em></div>
+        <div><b>CONTRIBUTION</b><span>₹1,200 per seat</span><em>Includes chai and dinner after the music</em></div>
+        <div><b>ASK US</b><span>baithak@mehfil.in</span><em>+91 98290 00000 · 10 AM to 8 PM</em></div>
+      </div>
+
+      <div class="form" id="form">
+        <div id="formBody">
+          <div class="field">
+            <label for="nm">Your name</label>
+            <input id="nm" type="text" placeholder="As we should announce you" autocomplete="name">
+          </div>
+          <div class="two">
+            <div class="field">
+              <label for="ph">Phone</label>
+              <input id="ph" type="tel" placeholder="+91" autocomplete="tel">
+            </div>
+            <div class="field">
+              <label for="st">Seats</label>
+              <select id="st"><option>1</option><option>2</option><option>3</option><option>4</option></select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="em">Email</label>
+            <input id="em" type="email" placeholder="you@example.com" autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="sg">Seating</label>
+            <select id="sg"><option>Floor cushion</option><option>Chair at the back</option></select>
+          </div>
+          <button class="btn solid" id="send" style="width:100%;justify-content:center">Reserve a seat</button>
+          <p class="note" id="note">We hold your seat for 24 hours while we confirm by phone.</p>
+        </div>
+        <div class="done" id="done">
+          <h3>आपकी जगह रख ली गई</h3>
+          <p id="doneMsg">Your seat is held. We'll call to confirm before tomorrow evening.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="om">महफ़िल-ए-बैठक</div>
+    <p>One room, one lamp, thirty listeners · Jaipur, since 2019</p>
+    <p style="opacity:.6">Every second Saturday. Seats open on the first.</p>
+    <p class="craft">Web craft by <span class="heart" id="heart">💗</span> <a href="https://anupkanakle.com" target="_blank" rel="noopener">Anup Kankale</a></p>
+  </div>
+</footer>
+
+<button class="sur" id="sur" aria-pressed="false" aria-label="Play tanpura drone">
+  <span class="bars"><i></i><i></i><i></i><i></i></span><span id="surLabel">तानपुरा</span>
+</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!window.gsap){ document.getElementById('nav').style.transform='none'; return; }
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ---------- split characters ---------- */
+  function split(el){
+    var txt = el.textContent, out = '';
+    for(var i=0;i<txt.length;i++){
+      var c = txt[i];
+      out += c === ' ' ? '<span class="ch" style="width:.3em">&nbsp;</span>' : '<span class="ch">'+c+'</span>';
+    }
+    el.innerHTML = out;
+    return el.querySelectorAll('.ch');
+  }
+
+  /* ---------- drifting music icons ---------- */
+  var icons = [
+    // single note
+    '<svg width="100%" height="100%" viewBox="0 0 24 24"><circle cx="8" cy="18" r="3.4"/><path d="M11.4 18V4.5l6.5 2"/></svg>',
+    // beamed pair
+    '<svg width="100%" height="100%" viewBox="0 0 24 24"><circle cx="6" cy="17.5" r="2.8"/><circle cx="16.5" cy="15.5" r="2.8"/><path d="M8.8 17.5V6l10.5-2.2v11.7M8.8 9.2l10.5-2.2"/></svg>',
+    // tabla
+    '<svg width="100%" height="100%" viewBox="0 0 24 24"><ellipse cx="12" cy="7.5" rx="6.2" ry="2.5"/><path d="M5.8 7.5v7.8c0 2 2.8 3.4 6.2 3.4s6.2-1.4 6.2-3.4V7.5"/><path d="M8.5 20h7"/></svg>',
+    // tanpura / sitar
+    '<svg width="100%" height="100%" viewBox="0 0 24 24"><circle cx="7.5" cy="16.5" r="4.4"/><path d="M10.6 13.4L19 5M16.4 3.2l4.4 4.4"/></svg>',
+    // harmonium
+    '<svg width="100%" height="100%" viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="9" rx="1.4"/><path d="M6 9V6h12v3M7.5 12v3M10.5 12v3M13.5 12v3M16.5 12v3"/></svg>',
+    // rhythm curve (alaap)
+    '<svg width="100%" height="100%" viewBox="0 0 24 24"><path d="M3 16c4 0 4-9 8-9s4 9 8 9"/><circle cx="3" cy="16" r="1.6"/><circle cx="19" cy="16" r="1.6"/></svg>'
+  ];
+  var sargam = ['सा','रे','ग','म','प','ध','नि','ॐ'];
+
+  var stage = document.getElementById('notes');
+  if(!reduce && stage){
+    var COUNT = window.innerWidth < 700 ? 14 : 24;
+    for(var e=0; e<COUNT; e++){
+      (function(){
+        var el = document.createElement('div');
+        el.className = 'mnote';
+        var size = gsap.utils.random(13, 30);
+        el.style.width = size + 'px';
+        el.style.height = size + 'px';
+        el.style.fontSize = size + 'px';
+        if(Math.random() < 0.34){
+          el.innerHTML = '<span class="sa">' + sargam[Math.floor(Math.random()*sargam.length)] + '</span>';
+        }else{
+          el.innerHTML = icons[Math.floor(Math.random()*icons.length)];
+        }
+        stage.appendChild(el);
+
+        var peak = gsap.utils.random(.16, .5);
+        var span = window.innerHeight + 260;
+
+        function place(){
+          el.style.left = gsap.utils.random(0, window.innerWidth - size) + 'px';
+          el.style.top  = (window.innerHeight + gsap.utils.random(20, 240)) + 'px';
+        }
+        place();
+
+        var rise = gsap.to(el, {
+          y: -span,
+          duration: gsap.utils.random(17, 34),
+          delay: gsap.utils.random(0, 16),
+          repeat: -1,
+          ease: 'none',
+          onUpdate: function(){ el.style.opacity = peak * Math.sin(Math.PI * rise.progress()); },
+          onRepeat: place
+        });
+
+        gsap.to(el, {x: gsap.utils.random(-70, 70), duration: gsap.utils.random(4, 9),
+          repeat: -1, yoyo: true, ease: 'sine.inOut'});
+        gsap.to(el, {rotation: gsap.utils.random(-28, 28), duration: gsap.utils.random(5, 11),
+          repeat: -1, yoyo: true, ease: 'sine.inOut'});
+      })();
+    }
+  }
+
+  /* ---------- hero opening sequence ---------- */
+  var chars = split(document.getElementById('title'));
+  var paths = document.querySelectorAll('#mehrab path, #mehrab circle');
+  paths.forEach(function(p){
+    var len = (p.getTotalLength ? p.getTotalLength() : 600);
+    gsap.set(p,{strokeDasharray:len,strokeDashoffset:len,opacity:.9});
+  });
+
+  /* ---------- build the harmonium keyboard ---------- */
+  var NS = 'http://www.w3.org/2000/svg';
+  var keysG = document.getElementById('keys');
+  // keyboard sits on the angled top surface: front edge y=284 (x 130..492), back edge y=252 (x 162..524)
+  var KN = 17, kx0 = 140, kx1 = 482, kw = (kx1 - kx0) / KN;
+  var blackAfter = [0,1,3,4,5,7,8,10,11,12,14];
+  for(var k=0;k<KN;k++){
+    var x = kx0 + k*kw;
+    var p = document.createElementNS(NS,'path');
+    p.setAttribute('class','key');
+    p.setAttribute('d','M'+x+' 284 L'+(x+kw-1.5)+' 284 L'+(x+kw-1.5+32)+' 252 L'+(x+32)+' 252 Z');
+    keysG.appendChild(p);
+  }
+  blackAfter.forEach(function(k){
+    var x = kx0 + (k+1)*kw - kw*0.3;
+    var b = document.createElementNS(NS,'path');
+    b.setAttribute('class','key blk');
+    b.setAttribute('d','M'+x+' 268 L'+(x+kw*0.6)+' 268 L'+(x+kw*0.6+20)+' 248 L'+(x+20)+' 248 Z');
+    keysG.appendChild(b);
+  });
+
+  /* ---------- hero opening: the room, then the instruments ---------- */
+  var tl = gsap.timeline({defaults:{ease:'power3.out'}});
+  tl.to(paths,{strokeDashoffset:0,duration:2.1,stagger:.09,ease:'power2.inOut'})
+    .from('.eyebrow',{opacity:0,y:14,duration:.9},'-=1.5')
+    .from(chars,{opacity:0,yPercent:120,rotateX:-70,filter:'blur(12px)',duration:1.15,stagger:.055},'-=1.1')
+    .fromTo('#title',{backgroundPositionX:'190%'},{backgroundPositionX:'-60%',duration:2.4,ease:'power2.inOut'},'-=.7')
+    .from('.roman',{opacity:0,letterSpacing:'1.1em',duration:1.2},'-=1.9')
+    .from('#urdu',{opacity:0,y:18,duration:1.1},'-=1.1')
+    .from('.hero-actions .btn',{opacity:0,y:20,duration:.8,stagger:.12},'-=.8')
+    .to('#nav',{y:0,duration:.8},'-=.6')
+    .from('#floor',{opacity:0,scaleX:.82,transformOrigin:'50% 100%',duration:1.1},'-=1.1')
+    .from('#harmonium',{opacity:0,y:52,duration:1,ease:'power2.out'},'-=.75')
+    .from('#tabla',{opacity:0,y:52,duration:1,ease:'power2.out'},'-=.85')
+    .from('#lamp',{opacity:0,y:24,duration:.8},'-=.7')
+    .from('#flame',{scaleY:0,transformOrigin:'50% 100%',duration:.7,ease:'back.out(2)'},'-=.4')
+    .fromTo('#lampGlow',{attr:{r:8},opacity:0},{attr:{r:62},opacity:.13,duration:1.2},'-=.6');
+
+  if(!reduce){
+    gsap.to('#mehrab',{y:-70,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:.6}});
+    gsap.to('#scene',{y:40,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:.6}});
+    gsap.to('#title',{backgroundPositionX:'-260%',repeat:-1,duration:7,ease:'none',delay:3});
+
+    /* lamp keeps burning */
+    gsap.to('#flame',{scaleX:1.2,scaleY:.9,skewX:6,transformOrigin:'50% 100%',repeat:-1,yoyo:true,duration:.5,ease:'sine.inOut'});
+    gsap.to('#lampGlow',{opacity:.22,attr:{r:70},repeat:-1,yoyo:true,duration:2.3,ease:'sine.inOut'});
+
+    /* bellows breathing */
+    gsap.to('#bellows',{scaleY:.9,scaleX:.985,transformOrigin:'50% 100%',repeat:-1,yoyo:true,duration:1.9,ease:'sine.inOut'});
+
+    /* a hand on the keys */
+    var allKeys = gsap.utils.toArray('#keys .key');
+    setInterval(function(){
+      var n = 1 + Math.floor(Math.random()*3);
+      for(var i=0;i<n;i++){
+        var key = allKeys[Math.floor(Math.random()*allKeys.length)];
+        gsap.fromTo(key,{y:0},{y:4,duration:.16,yoyo:true,repeat:1,ease:'power2.inOut',delay:i*0.07});
+      }
+    }, 1200);
+
+    /* tabla: a teentaal-shaped pattern, dha dhin dhin dha */
+    function strike(head, rip, size, force){
+      gsap.fromTo(head,{scaleY:1,scaleX:1},
+        {scaleY:1-0.12*force,scaleX:1+0.02*force,transformOrigin:'50% 50%',duration:.07,yoyo:true,repeat:1,ease:'power2.out'});
+      gsap.fromTo(rip,{attr:{r:12},opacity:.5*force},{attr:{r:size},opacity:0,duration:.95,ease:'power2.out'});
+    }
+    var beat = 0.42;
+    var taal = [[0,'d',1],[1,'b',.8],[2,'d',.7],[3,'d',1],[4,'b',.9],[5,'d',.7],[6,'b',1],[7,'d',.8],
+                [8,'d',1],[9,'b',.7],[10,'d',.9],[11,'d',.6],[12,'b',1],[13,'d',.8],[14,'d',.7],[15,'b',.9]];
+    var rhythm = gsap.timeline({repeat:-1});
+    taal.forEach(function(s){
+      rhythm.call(function(){
+        if(s[1]==='d') strike('#dayanHead','#rip1',58,s[2]);
+        else strike('#bayanHead','#rip2',74,s[2]);
+      }, null, s[0]*beat);
+    });
+    rhythm.to({}, {duration: 16*beat}, 0);
+  }
+
+  /* ---------- section headings ---------- */
+  document.querySelectorAll('[data-split]').forEach(function(h){
+    var cs = split(h);
+    gsap.from(cs,{
+      opacity:0,yPercent:80,filter:'blur(8px)',duration:.9,stagger:.03,ease:'power3.out',
+      scrollTrigger:{trigger:h,start:'top 82%'}
+    });
+  });
+
+  /* ---------- intro + diya ---------- */
+  gsap.from('#baithak .copy > *',{opacity:0,y:26,duration:.9,stagger:.12,scrollTrigger:{trigger:'#baithak',start:'top 72%'}});
+  gsap.from('#diya',{opacity:0,scale:.86,duration:1.3,ease:'power2.out',scrollTrigger:{trigger:'#baithak',start:'top 72%'}});
+  if(!reduce){
+    gsap.to('#diyaFlame',{scaleX:1.06,scaleY:.96,svgOrigin:'150 193',repeat:-1,yoyo:true,duration:2.8,ease:'sine.inOut'});
+    gsap.to('#diyaFlame',{rotation:2.2,svgOrigin:'150 193',repeat:-1,yoyo:true,duration:4.6,ease:'sine.inOut'});
+    gsap.to('#diyaFlameIn',{scaleY:.93,scaleX:1.04,svgOrigin:'150 189',repeat:-1,yoyo:true,duration:2.1,ease:'sine.inOut'});
+    gsap.to('#diyaGlow',{opacity:.22,attr:{r:88},repeat:-1,yoyo:true,duration:4.5,ease:'sine.inOut'});
+    gsap.to('#diya .halo',{rotation:360,svgOrigin:'150 172',repeat:-1,duration:120,ease:'none'});
+  }
+
+  /* counters */
+  document.querySelectorAll('[data-count]').forEach(function(n){
+    var end = +n.getAttribute('data-count'), o = {v:0};
+    gsap.to(o,{v:end,duration:1.8,ease:'power2.out',
+      scrollTrigger:{trigger:n,start:'top 88%'},
+      onUpdate:function(){ n.textContent = Math.round(o.v); }});
+  });
+
+  /* ---------- arches: lift out of the floor ---------- */
+  gsap.from('.arch',{
+    opacity:0,yPercent:18,clipPath:'inset(100% 0 0 0)',duration:1.05,stagger:.1,ease:'power3.out',
+    scrollTrigger:{trigger:'.arches',start:'top 78%'}
+  });
+
+  /* ---------- couplet rotator ---------- */
+  var couplets = [
+    ['शाम ढले जो चराग़ जले, तो बैठक सज जाती है<br>हर ख़ामोशी इस महफ़िल में ग़ज़ल बन जाती है','FROM OUR SEPTEMBER BAITHAK'],
+    ['सुर की डोर से बाँधा है ये लम्हा हमने<br>रात ढलती रहे, ये महफ़िल न ढले','READ BY A GUEST, JULY'],
+    ['अल्फ़ाज़ ठहरें, साज़ बहे, दिल सुने ज़रा<br>यूँ भी तो कोई रात गुज़ारी जा सकती है','OPENING COUPLET, MARCH'],
+    ['यहाँ तालियाँ नहीं, बस एक \u2018वाह\u2019 काफ़ी है<br>कि इस कमरे में हर आवाज़ पहुँचती है','SAID AT THE DOOR, EVERY MONTH']
+  ];
+  var idx = 0, line = document.getElementById('cLine'), by = document.getElementById('cBy');
+  function rotate(){
+    idx = (idx+1) % couplets.length;
+    gsap.timeline()
+      .to([line,by],{opacity:0,y:-16,filter:'blur(7px)',duration:.7,ease:'power2.in'})
+      .add(function(){ line.innerHTML = couplets[idx][0]; by.textContent = couplets[idx][1]; })
+      .fromTo([line,by],{opacity:0,y:16,filter:'blur(7px)'},{opacity:1,y:0,filter:'blur(0px)',duration:.9,stagger:.08,ease:'power2.out'});
+  }
+  if(!reduce) setInterval(rotate, 6500);
+
+  /* marquee */
+  var words = ['ग़ज़ल','WAH','शायरी','SUR','क़िस्सा','ADAB','ठुमरी','WAH','सूफ़ी','SAMA'];
+  var mq = document.getElementById('marquee'), strip = '';
+  words.concat(words).concat(words).forEach(function(w){ strip += '<span>'+w+'</span><span>❖</span>'; });
+  mq.innerHTML = strip;
+  if(!reduce) gsap.to(mq,{xPercent:-33.33,repeat:-1,duration:34,ease:'none'});
+
+  /* ---------- artists ---------- */
+  gsap.from('.card',{opacity:0,y:34,duration:.9,stagger:.1,ease:'power3.out',scrollTrigger:{trigger:'.fankaar',start:'top 78%'}});
+
+  /* ---------- timeline thread ---------- */
+  gsap.to('#lit',{scaleY:1,ease:'none',scrollTrigger:{trigger:'#thread',start:'top 70%',end:'bottom 75%',scrub:.5}});
+  gsap.from('.step',{opacity:0,x:-22,duration:.75,stagger:.14,ease:'power2.out',scrollTrigger:{trigger:'#thread',start:'top 72%'}});
+  gsap.from('.aadaab div',{opacity:0,duration:.8,stagger:.1,scrollTrigger:{trigger:'.aadaab',start:'top 80%'}});
+  gsap.from('.detail div, .form',{opacity:0,y:26,duration:.9,stagger:.1,scrollTrigger:{trigger:'#nishist .nishist',start:'top 76%'}});
+
+  /* ---------- reservation ---------- */
+  var send = document.getElementById('send'), note = document.getElementById('note');
+  send.addEventListener('click', function(){
+    var nm = document.getElementById('nm'), ph = document.getElementById('ph');
+    if(!nm.value.trim() || !ph.value.trim()){
+      note.textContent = 'Add your name and phone number so we can confirm the seat.';
+      note.style.color = 'var(--gold-lit)';
+      gsap.fromTo('#form',{x:-7},{x:0,duration:.5,ease:'elastic.out(1,.35)'});
+      return;
+    }
+    var seats = document.getElementById('st').value;
+    try{ localStorage.setItem('baithak-rsvp', JSON.stringify({n:nm.value,s:seats})); }catch(err){}
+    document.getElementById('doneMsg').textContent = seats + (seats==='1'?' seat':' seats') + ' held for ' + nm.value.trim().split(' ')[0] + '. We\u2019ll call to confirm before tomorrow evening.';
+    gsap.timeline()
+      .to('#formBody',{opacity:0,y:-14,duration:.45,ease:'power2.in'})
+      .set('#formBody',{display:'none'})
+      .set('#done',{display:'block'})
+      .fromTo('#done',{opacity:0,y:16},{opacity:1,y:0,duration:.7,ease:'power3.out'});
+  });
+
+  /* ---------- tanpura drone (Web Audio, nothing loaded) ---------- */
+  var ctx, master, loop, playing = false;
+  var sur = document.getElementById('sur'), label = document.getElementById('surLabel');
+  var cycle = [196.00, 261.63, 261.63, 130.81]; // Pa Sa Sa Sa(low)
+  var step = 0;
+
+  function pluck(freq, at){
+    for(var h=1; h<=7; h++){
+      var osc = ctx.createOscillator(), g = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.value = freq * h * (1 + (h-1)*0.0012);
+      var amp = 0.10 / (h*h*0.55 + 1);
+      g.gain.setValueAtTime(0.0001, at);
+      g.gain.linearRampToValueAtTime(amp, at + 0.03);
+      g.gain.exponentialRampToValueAtTime(0.0001, at + 3.6/(1 + (h-1)*0.34));
+      osc.connect(g); g.connect(master);
+      osc.start(at); osc.stop(at + 4);
+    }
+  }
+
+  function startDrone(){
+    ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
+    if(ctx.state === 'suspended') ctx.resume();
+    master = ctx.createGain();
+    master.gain.setValueAtTime(0.0001, ctx.currentTime);
+    master.gain.linearRampToValueAtTime(0.32, ctx.currentTime + 2.5);
+    var lp = ctx.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value = 2100;
+    var dl = ctx.createDelay(); dl.delayTime.value = 0.28;
+    var fb = ctx.createGain(); fb.gain.value = 0.22;
+    master.connect(lp); lp.connect(ctx.destination);
+    lp.connect(dl); dl.connect(fb); fb.connect(dl); dl.connect(ctx.destination);
+    step = 0;
+    pluck(cycle[0], ctx.currentTime + 0.1);
+    loop = setInterval(function(){
+      step = (step + 1) % cycle.length;
+      pluck(cycle[step], ctx.currentTime + 0.02);
+    }, 1450);
+  }
+
+  function stopDrone(){
+    clearInterval(loop);
+    if(master){ master.gain.cancelScheduledValues(ctx.currentTime);
+      master.gain.setValueAtTime(master.gain.value, ctx.currentTime);
+      master.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 1.2); }
+  }
+
+  sur.addEventListener('click', function(){
+    playing = !playing;
+    sur.classList.toggle('on', playing);
+    sur.setAttribute('aria-pressed', playing ? 'true' : 'false');
+    label.textContent = playing ? 'सुर चालू' : 'तानपुरा';
+    try{ playing ? startDrone() : stopDrone(); }
+    catch(err){ label.textContent = 'सुर बंद'; playing = false; sur.classList.remove('on'); }
+  });
+
+  window.addEventListener('resize', function(){ ScrollTrigger.refresh(); });
+
+  /* ---------- footer credit ---------- */
+  gsap.from('footer .craft',{opacity:0,y:14,duration:.9,scrollTrigger:{trigger:'footer',start:'top 92%'}});
+  if(!reduce){
+    gsap.to('#heart',{scale:1.25,duration:.34,repeat:-1,yoyo:true,repeatDelay:.85,ease:'power2.out',transformOrigin:'50% 50%'});
+  }
+})();
+</script>
+</body>
+</html>
