@@ -1,10 +1,79 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mehfil-e-Baithak — an evening of ghazal, shayari and qissa</title>
-<meta name="description" content="An intimate baithak of live ghazal, shayari and storytelling. Floor seating, one lamp, no stage.">
+<meta name="description" content="An intimate baithak of live ghazal, shayari and storytelling in Jaipur. Floor seating, one lamp, thirty listeners, no stage.">
+
+<!-- Live at https://anupkankale.github.io/Mehfile-e--baithak/ — update these URLs if the repo is renamed or a custom domain is added -->
+<link rel="canonical" href="https://anupkankale.github.io/Mehfile-e--baithak/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#1F0408">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%AA%94%3C/text%3E%3C/svg%3E">
+
+<!-- link preview: WhatsApp, Facebook, LinkedIn, Slack, iMessage -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mehfil-e-Baithak">
+<meta property="og:locale" content="en_IN">
+<meta property="og:title" content="Mehfil-e-Baithak — an evening of ghazal, shayari and qissa">
+<meta property="og:description" content="One room, one lamp, thirty listeners. Live ghazal, shayari and storytelling in the old city of Jaipur. Thirty seats, released on the first of every month.">
+<meta property="og:url" content="https://anupkankale.github.io/Mehfile-e--baithak/">
+<meta property="og:image" content="https://anupkankale.github.io/Mehfile-e--baithak/og-image.jpg">
+<meta property="og:image:secure_url" content="https://anupkankale.github.io/Mehfile-e--baithak/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A lit diya inside a gold arch, with the words Mehfil-e-Baithak">
+
+<!-- link preview: X / Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mehfil-e-Baithak — an evening of ghazal, shayari and qissa">
+<meta name="twitter:description" content="One room, one lamp, thirty listeners. Live ghazal, shayari and storytelling in the old city of Jaipur.">
+<meta name="twitter:image" content="https://anupkankale.github.io/Mehfile-e--baithak/og-image.jpg">
+<meta name="twitter:image:alt" content="A lit diya inside a gold arch, with the words Mehfil-e-Baithak">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"MusicEvent",
+  "name":"Mehfil-e-Baithak — an evening of ghazal, shayari and qissa",
+  "description":"An intimate baithak of live ghazal, shayari and storytelling. Floor seating, unamplified, thirty listeners.",
+  "image":"https://anupkankale.github.io/Mehfile-e--baithak/og-image.jpg",
+  "url":"https://anupkankale.github.io/Mehfile-e--baithak/",
+  "startDate":"2026-11-14T18:45+05:30",
+  "endDate":"2026-11-14T23:00+05:30",
+  "eventStatus":"https://schema.org/EventScheduled",
+  "eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode",
+  "location":{
+    "@type":"Place",
+    "name":"Haveli Chandra Mahal, Gangapole",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"Gangapole, Old City",
+      "addressLocality":"Jaipur",
+      "addressRegion":"Rajasthan",
+      "postalCode":"302002",
+      "addressCountry":"IN"
+    }
+  },
+  "organizer":{"@type":"Organization","name":"Mehfil-e-Baithak","url":"https://anupkankale.github.io/Mehfile-e--baithak/"},
+  "performer":[
+    {"@type":"Person","name":"Naseem Bano"},
+    {"@type":"Person","name":"Irfan Qureshi"},
+    {"@type":"Person","name":"Meera Joshi"},
+    {"@type":"Person","name":"Zubair Khan"}
+  ],
+  "offers":{
+    "@type":"Offer",
+    "price":"1200",
+    "priceCurrency":"INR",
+    "availability":"https://schema.org/InStock",
+    "url":"https://anupkankale.github.io/Mehfile-e--baithak/#nishist",
+    "validFrom":"2026-11-01T00:00+05:30"
+  }
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Tiro+Devanagari+Hindi:ital@0;1&family=Noto+Nastaliq+Urdu:wght@400;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
@@ -109,6 +178,7 @@ a{color:inherit}
   background-size:260% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
   filter:drop-shadow(0 6px 30px rgba(194,43,47,.45))}
 .title .ch{display:inline-block;will-change:transform,opacity}
+.ch.sp{display:inline-block;width:.26em}
 .roman{font-family:var(--serif);font-size:clamp(.7rem,2.2vw,.9rem);letter-spacing:.44em;color:var(--soft);margin:20px 0 0;padding-left:.44em}
 .urdu{font-family:var(--urdu);font-size:clamp(.95rem,3vw,1.3rem);line-height:2.5;color:var(--gold-lit);
   margin:24px auto 0;max-width:30ch;direction:rtl}
@@ -657,12 +727,37 @@ footer .craft a:hover{color:var(--gold);border-color:var(--gold)}
   if(!window.gsap){ document.getElementById('nav').style.transform='none'; return; }
   gsap.registerPlugin(ScrollTrigger);
 
-  /* ---------- split characters ---------- */
+  /* ---------- split into syllable clusters (Devanagari safe) ---------- */
+  function isMark(ch){
+    var x = ch.charCodeAt(0);
+    return (x >= 0x0900 && x <= 0x0903) ||   // anusvara, chandrabindu, visarga
+           (x >= 0x093A && x <= 0x094F) ||   // matras + virama + nukta
+           (x >= 0x0951 && x <= 0x0957) ||
+           (x >= 0x0962 && x <= 0x0963) ||
+           (x >= 0x0300 && x <= 0x036F) ||   // generic combining marks
+           x === 0x200C || x === 0x200D ||   // ZWNJ / ZWJ
+           x === 0xFE0E || x === 0xFE0F;
+  }
+  function clusterize(str){
+    var out = [], i = 0, L = str.length;
+    while(i < L){
+      var c = str[i++];
+      if(/[\uD800-\uDBFF]/.test(c) && i < L) c += str[i++];   // surrogate pair
+      while(i < L && isMark(str[i])){
+        var m = str[i++];
+        c += m;
+        if(m === '\u094D' && i < L) c += str[i++];            // virama binds the next consonant
+      }
+      out.push(c);
+    }
+    return out;
+  }
   function split(el){
-    var txt = el.textContent, out = '';
-    for(var i=0;i<txt.length;i++){
-      var c = txt[i];
-      out += c === ' ' ? '<span class="ch" style="width:.3em">&nbsp;</span>' : '<span class="ch">'+c+'</span>';
+    var parts = clusterize(el.textContent), out = '';
+    for(var i = 0; i < parts.length; i++){
+      out += parts[i] === ' '
+        ? '<span class="ch sp">&nbsp;</span>'
+        : '<span class="ch">' + parts[i] + '</span>';
     }
     el.innerHTML = out;
     return el.querySelectorAll('.ch');
