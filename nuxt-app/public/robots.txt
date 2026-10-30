@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://anupkankale.github.io/Mehfile-e--baithak/sitemap.xml
