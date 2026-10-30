@@ -86,15 +86,6 @@ export const featuredEvent = {
   ]
 }
 
-export const schedule = [
-  { time: '7:00 PM', title: 'Arrival & Welcome', hi: 'स्वागत और परिचय • स्वागत आणि ओळख', text: 'Step onto soft carpets under amber candlelight, greeted with a traditional warm welcome and soothing ambient music.' },
-  { time: '7:20 PM', title: 'Introductions', hi: 'परिचय और संवाद • ओळख आणि संवाद', text: 'We shed our modern masks. A warm dialogue to align our hearts and welcome one another into the baithak.' },
-  { time: '7:45 PM', title: 'Opening Ghazal', hi: 'राग और गजल • सूर आणि गझल', text: 'The first deep strings pluck, and classical melodies fill the room, echoing ancient chamber seating traditions.' },
-  { time: '8:15 PM', title: 'Shayari Circle', hi: 'शायरी की महफिल • काव्यमैफिल व दाद', text: 'Evocative couplets and moving nazms read under candlelight. Interactive "wah-wah" expressions of pure emotion.' },
-  { time: '9:00 PM', title: 'Acoustic Session', hi: 'सुर और ताल • जुगलबंदी व ताल', text: 'A raw, organic jugalbandi of unplugged bansuri flute, classical sitar, keys, acoustic chords, and percussions.' },
-  { time: '10:00 PM', title: 'Conversations Continue', hi: 'आत्मीय गपशप • गप्पागोष्टी आणि निरोप', text: 'The formal sitting ends, but the memories linger. Share thoughts, exchange numbers, and enjoy lingering conversations.' }
-]
-
 export const numbers = [
   { value: 8, hi: '८+ महफ़िल', label: 'MEHFILS HOSTED' },
   { value: 750, hi: '७५०+ हमसफ़र', label: 'GUESTS WELCOMED' },

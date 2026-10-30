@@ -27,11 +27,10 @@
       <div class="aadaab" style="margin-bottom:clamp(44px,6vw,72px)">
         <div v-for="s in ev.segments" :key="s.title"><h4>{{ s.title }}</h4><p>{{ s.text }}</p></div>
       </div>
-      <TimelineThread :steps="schedule" />
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { featuredEvent as ev, schedule, site } from '~/data/site'
+import { featuredEvent as ev, site } from '~/data/site'
 </script>
