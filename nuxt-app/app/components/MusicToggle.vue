@@ -1,5 +1,10 @@
 <template>
-<button class="sur" id="sur" aria-pressed="false" aria-label="Play tanpura drone">
-  <span class="bars"><i></i><i></i><i></i><i></i></span><span id="surLabel">तानपुरा</span>
-</button>
+  <button class="sur" :class="{ on: playing }" :aria-pressed="playing" aria-label="Play tanpura drone" @click="toggle">
+    <span class="bars"><i /><i /><i /><i /></span>
+    <span>{{ failed ? 'सुर बंद' : playing ? 'सुर चालू' : 'तानपुरा' }}</span>
+  </button>
 </template>
+
+<script setup lang="ts">
+const { playing, failed, toggle } = useTanpura()
+</script>

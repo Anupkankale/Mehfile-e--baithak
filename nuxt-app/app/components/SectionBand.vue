@@ -1,13 +1,22 @@
 <template>
-<section class="band">
-  <div class="wrap">
-    <div class="couplet" id="couplet">
-      <div>
-        <p class="line" id="cLine">कुछ महफ़िलें सिर्फ़ सजती नहीं<br>दिलों में बस जाती हैं...</p>
-        <p class="by" id="cBy">SOME EVENINGS DO NOT JUST HAPPEN... THEY RESIDE IN HEARTS</p>
+  <section class="band">
+    <div class="wrap">
+      <div id="couplet" class="couplet">
+        <div>
+          <!-- eslint-disable-next-line vue/no-v-html -->
+          <p id="cLine" class="line" v-html="couplets[0]![0]" />
+          <p id="cBy" class="by">{{ couplets[0]![1] }}</p>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="marquee" id="marquee"></div>
-</section>
+    <div id="marquee" class="marquee">
+      <template v-for="(w, i) in [...marqueeWords, ...marqueeWords, ...marqueeWords]" :key="i">
+        <span>{{ w }}</span><span>❖</span>
+      </template>
+    </div>
+  </section>
 </template>
+
+<script setup lang="ts">
+import { couplets, marqueeWords } from '~/data/site'
+</script>
